@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
   </head>
   <body>
@@ -14,22 +14,20 @@
         </ul>
       </nav>
     </header>
-    <hr />
+    <hr>
     <main>
       <div>
         <details>
           <summary>График</summary>
           <form>
-            <b>Значение по оси OX</b><br />
-            <input type="radio" name="ox" /> Потоковые процессоры<br />
-            <input type="radio" name="ox" /> Мощность<br />
-            <input type="radio" name="ox" /> Цена<br />
-            <input type="radio" name="ox" /> Энергопотребление<br />
+            <b>Значение по оси OX</b><br>
+            <input type="radio" id="i1" name="ox"> Энергопотребление<br>
+            <input type="radio" id="i2" name="ox"> Видеопамять<br>
 
-            <b>Результат</b><br />
-            <input type="checkbox" name="max" /> Максимальное значение<br />
-            <input type="checkbox" name="min" /> Минимальное значение<br />
-            <input type="checkbox" name="count" /> Количество видеокарт<br />
+            <b>Результат</b><br>
+            <input type="checkbox" id="i3" name="max"> Максимальная мощность <br>
+            <input type="checkbox" id="i4" name="min"> Минимальное мощность<br>
+            <!-- <input type="checkbox" name="count"> Количество видеокарт<br> -->
             <button type="submit">Построить</button>
           </form>
           Здесь будет график
@@ -38,30 +36,39 @@
         <details>
           <summary>Фильтр</summary>
           <form>
-            <label>Название:</label> <input type="text" name="model" /><br />
+            <label>Модель:</label> <input type="text" id="i5" name="model"><br>
             <label>Производитель:</label>
             <select name="vendor">
               <option>NVIDIA</option>
               <option>AMD</option>
               <option>Intel</option>
               <option>Все</option></select
-            ><br />
+            ><br>
 
             <label>Частота ядра от:</label>
-            <input type="number" name="freq_min" /> до
-            <input type="number" name="freq_max" /><br />
+            <input type="number" id="i6"  name="freq_min"> до
+            <input type="number" id="i7" name="freq_max"><br>
+
+            <label>Энергопотребление от:</label>
+            <input type="number" id="i8" name="enrg_min"> до
+            <input type="number" id="i9" name="enrg_max"><br>
+
 
             <label>Цена: от</label>
-            <input type="number" name="price_min" /> до
-            <input type="number" name="price_max" /><br />
+            <input type="number" id="i10" name="price_min"> до
+            <input type="number" id="i11" name="price_max"><br>
 
             <label>Видеопамять: от</label>
-            <input type="number" name="mem_min" /> до
-            <input type="number" name="mem_max" /><br />
+            <input type="number" id="i12" name="mem_min"> до
+            <input type="number" id="i13" name="mem_max"><br>
 
             <label>Мощность: от</label>
-            <input type="number" name="power_min" /> до
-            <input type="number" name="power_max" /><br />
+            <input type="number" id="i4" name="power_min"> до
+            <input type="number" id="i5 "name="power_max"><br>
+
+            <label>Потоковые процессоры от:</label>
+            <input type="number" id="i6" name="proc_min"> до
+            <input type="number" id="i7" name="proc_max"><br>
 
             <button type="submit">Найти</button>
           </form>
@@ -82,7 +89,7 @@
               <option>Частота ядра</option>
               <option>Потоковые процессоры</option>
             </select>
-            <input type="checkbox" name="desc1" /> по убыванию?<br />
+            <input type="checkbox" id="i8" name="desc1"> по убыванию?<br>
 
             Второй уровень:
             <select name="sort2">
@@ -96,7 +103,7 @@
               <option>Частота ядра</option>
               <option>Потоковые процессоры</option>
             </select>
-            <input type="checkbox" name="desc2" /> по убыванию?<br />
+            <input type="checkbox" id="i9" name="desc2"> по убыванию?<br>
 
             Третий уровень:
             <select name="sort3">
@@ -110,7 +117,7 @@
               <option>Частота ядра</option>
               <option>Потоковые процессоры</option>
             </select>
-            <input type="checkbox" name="desc3" /> по убыванию?<br /><br />
+            <input type="checkbox" id="i20" name="desc3"> по убыванию?<br><br>
 
             <button type="submit">Сортировать</button>
           </form>
@@ -656,7 +663,7 @@
         </table>
       </div>
     </main>
-    <hr />
+    <hr>
     <footer>
       <p align="center">
         <strong
