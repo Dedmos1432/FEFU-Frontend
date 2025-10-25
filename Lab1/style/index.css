@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.menu {
+  text-align: center;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.menu ul li {
+  display: inline-block;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding: 10px 10px;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+.menu ul li:hover {
+  background-color: rgb(19, 220, 39);
+}
+
+main {
+  width: 100%;
+}
+
+.videocard-images {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.videocard-images div {
+  display: inline-block;
+}
+.videocard-images .cont1 {
+  vertical-align: top;
+  width: 50%;
+
+  width: 49%;
+}
+.videocard-images .cont1 img {
+  width: 637px;
+  height: 100%;
+  display: block;
+}
+
+.videocard-images .cont2 {
+  width: 50%;
+  overflow: hidden;
+}
+
+.cont2 .img3 {
+  width: 100%;
+  height: 100%;
+}
+
+.img5,
+.img4 {
+  width: 49%;
+  height: 169px;
+}
+
+.cards {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.card1,
+.card2 {
+  border: 1px solid;
+  margin-bottom: 14px;
+  height: auto;
+}
+
+.card1 {
+  border: 1px solid gray;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card1 h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card1 .info {
+  width: 100%;
+  text-align: center;
+  font-size: 0;
+}
+
+.text-left,
+.image-center,
+.text-right {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+.text-left {
+  width: 30%;
+  padding-right: 10px;
+}
+
+.image-center {
+  width: 40%;
+  text-align: center;
+}
+
+.image-center img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-right {
+  width: 30%;
+  padding-left: 10px;
+}
+
+.button-container {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.button-container button {
+  background-color: #0074d9;
+  color: white;
+  border: 1px solid #004d99;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
