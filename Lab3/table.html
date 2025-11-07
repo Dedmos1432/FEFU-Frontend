@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul type="none">
+          <li><a href="./index.html">Самые лучшие видеокарты</a></li>
+          <li><a href="#">Список самых лучших видеокарт</a></li>
+        </ul>
+      </nav>
+    </header>
+    <hr>
+    <main>
+      <div>
+        <details>
+          <summary>График</summary>
+          <form>
+            <b>Значение по оси OX</b><br>
+            <input type="radio" id="i1" name="ox"> Энергопотребление<br>
+            <input type="radio" id="i2" name="ox"> Видеопамять<br>
+
+            <b>Результат</b><br>
+            <input type="checkbox" id="i3" name="max"> Максимальная мощность <br>
+            <input type="checkbox" id="i4" name="min"> Минимальное мощность<br>
+            <!-- <input type="checkbox" name="count"> Количество видеокарт<br> -->
+            <button type="submit">Построить</button>
+          </form>
+          Здесь будет график
+        </details>
+
+        <details>
+          <summary>Фильтр</summary>
+          <form>
+            <label>Модель:</label> <input type="text" id="i5" name="model"><br>
+            <label>Производитель:</label>
+            <select name="vendor">
+              <option>NVIDIA</option>
+              <option>AMD</option>
+              <option>Intel</option>
+              <option>Все</option></select
+            ><br>
+
+            <label>Частота ядра от:</label>
+            <input type="number" id="i6"  name="freq_min"> до
+            <input type="number" id="i7" name="freq_max"><br>
+
+            <label>Энергопотребление от:</label>
+            <input type="number" id="i8" name="enrg_min"> до
+            <input type="number" id="i9" name="enrg_max"><br>
+
+
+            <label>Цена: от</label>
+            <input type="number" id="i10" name="price_min"> до
+            <input type="number" id="i11" name="price_max"><br>
+
+            <label>Видеопамять: от</label>
+            <input type="number" id="i12" name="mem_min"> до
+            <input type="number" id="i13" name="mem_max"><br>
+
+            <label>Мощность: от</label>
+            <input type="number" id="i4" name="power_min"> до
+            <input type="number" id="i5 "name="power_max"><br>
+
+            <label>Потоковые процессоры от:</label>
+            <input type="number" id="i6" name="proc_min"> до
+            <input type="number" id="i7" name="proc_max"><br>
+
+            <button type="submit">Найти</button>
+          </form>
+        </details>
+
+        <details>
+          <summary>Сортировка</summary>
+          <form>
+            Первый уровень:
+            <select name="sort1">
+              <option>Нет</option>
+              <option>Модель</option>
+              <option>Производитель</option>
+              <option>Цена</option>
+              <option>Видеопамять</option>
+              <option>Энергопотребление</option>
+              <option>Мощность</option>
+              <option>Частота ядра</option>
+              <option>Потоковые процессоры</option>
+            </select>
+            <input type="checkbox" id="i8" name="desc1"> по убыванию?<br>
+
+            Второй уровень:
+            <select name="sort2">
+              <option>Нет</option>
+              <option>Модель</option>
+              <option>Производитель</option>
+              <option>Цена</option>
+              <option>Видеопамять</option>
+              <option>Энергопотребление</option>
+              <option>Мощность</option>
+              <option>Частота ядра</option>
+              <option>Потоковые процессоры</option>
+            </select>
+            <input type="checkbox" id="i9" name="desc2"> по убыванию?<br>
+
+            Третий уровень:
+            <select name="sort3">
+              <option>Нет</option>
+              <option>Модель</option>
+              <option>Производитель</option>
+              <option>Цена</option>
+              <option>Видеопамять</option>
+              <option>Энергопотребление</option>
+              <option>Мощность</option>
+              <option>Частота ядра</option>
+              <option>Потоковые процессоры</option>
+            </select>
+            <input type="checkbox" id="i20" name="desc3"> по убыванию?<br><br>
+
+            <button type="submit">Сортировать</button>
+          </form>
+        </details>
+      </div>
+      <div>
+        <table border="1" cellspacing="0" cellpadding="5" align="center">
+          <tr bgcolor="#DDDDDD">
+            <th>Модель</th>
+            <th>Производитель</th>
+            <th>Цена ($)</th>
+            <th>Видеопамять (ГБ)</th>
+            <th>Энергопотребление (Вт)</th>
+            <th>Мощность (баллы)</th>
+            <th>Частота ядра (МГц)</th>
+            <th>Потоковые процессоры</th>
+          </tr>
+
+          <tr>
+            <td>RTX 4090</td>
+            <td>NVIDIA</td>
+            <td>1599</td>
+            <td>24</td>
+            <td>450</td>
+            <td>10000</td>
+            <td>2235</td>
+            <td>16384</td>
+          </tr>
+          <tr>
+            <td>RTX 4080</td>
+            <td>NVIDIA</td>
+            <td>1199</td>
+            <td>16</td>
+            <td>320</td>
+            <td>9200</td>
+            <td>2205</td>
+            <td>9728</td>
+          </tr>
+          <tr>
+            <td>RTX 4070 Ti</td>
+            <td>NVIDIA</td>
+            <td>799</td>
+            <td>12</td>
+            <td>285</td>
+            <td>8400</td>
+            <td>2310</td>
+            <td>7680</td>
+          </tr>
+          <tr>
+            <td>RTX 4070</td>
+            <td>NVIDIA</td>
+            <td>599</td>
+            <td>12</td>
+            <td>200</td>
+            <td>7800</td>
+            <td>1920</td>
+            <td>5888</td>
+          </tr>
+          <tr>
+            <td>RTX 4060 Ti</td>
+            <td>NVIDIA</td>
+            <td>399</td>
+            <td>8</td>
+            <td>160</td>
+            <td>6900</td>
+            <td>2310</td>
+            <td>4352</td>
+          </tr>
+          <tr>
+            <td>RTX 4060</td>
+            <td>NVIDIA</td>
+            <td>329</td>
+            <td>8</td>
+            <td>120</td>
+            <td>6300</td>
+            <td>1830</td>
+            <td>3072</td>
+          </tr>
+          <tr>
+            <td>RTX 4050</td>
+            <td>NVIDIA</td>
+            <td>249</td>
+            <td>6</td>
+            <td>100</td>
+            <td>5500</td>
+            <td>1740</td>
+            <td>2560</td>
+          </tr>
+          <tr>
+            <td>RTX 3090 Ti</td>
+            <td>NVIDIA</td>
+            <td>1999</td>
+            <td>24</td>
+            <td>450</td>
+            <td>9800</td>
+            <td>1860</td>
+            <td>10752</td>
+          </tr>
+          <tr>
+            <td>RTX 3090</td>
+            <td>NVIDIA</td>
+            <td>1499</td>
+            <td>24</td>
+            <td>350</td>
+            <td>9500</td>
+            <td>1700</td>
+            <td>10496</td>
+          </tr>
+          <tr>
+            <td>RTX 3080 Ti</td>
+            <td>NVIDIA</td>
+            <td>1199</td>
+            <td>12</td>
+            <td>350</td>
+            <td>9000</td>
+            <td>1665</td>
+            <td>10240</td>
+          </tr>
+
+          <tr>
+            <td>RTX 3080</td>
+            <td>NVIDIA</td>
+            <td>699</td>
+            <td>10</td>
+            <td>320</td>
+            <td>8700</td>
+            <td>1710</td>
+            <td>8704</td>
+          </tr>
+          <tr>
+            <td>RTX 3070 Ti</td>
+            <td>NVIDIA</td>
+            <td>599</td>
+            <td>8</td>
+            <td>290</td>
+            <td>8100</td>
+            <td>1770</td>
+            <td>6144</td>
+          </tr>
+          <tr>
+            <td>RTX 3070</td>
+            <td>NVIDIA</td>
+            <td>499</td>
+            <td>8</td>
+            <td>220</td>
+            <td>7600</td>
+            <td>1725</td>
+            <td>5888</td>
+          </tr>
+          <tr>
+            <td>RTX 3060 Ti</td>
+            <td>NVIDIA</td>
+            <td>399</td>
+            <td>8</td>
+            <td>200</td>
+            <td>7000</td>
+            <td>1665</td>
+            <td>4864</td>
+          </tr>
+          <tr>
+            <td>RTX 3060</td>
+            <td>NVIDIA</td>
+            <td>329</td>
+            <td>12</td>
+            <td>170</td>
+            <td>6400</td>
+            <td>1777</td>
+            <td>3584</td>
+          </tr>
+          <tr>
+            <td>RTX 3050</td>
+            <td>NVIDIA</td>
+            <td>249</td>
+            <td>8</td>
+            <td>130</td>
+            <td>5600</td>
+            <td>1550</td>
+            <td>2560</td>
+          </tr>
+          <tr>
+            <td>GTX 1660 Ti</td>
+            <td>NVIDIA</td>
+            <td>279</td>
+            <td>6</td>
+            <td>120</td>
+            <td>5000</td>
+            <td>1770</td>
+            <td>1536</td>
+          </tr>
+          <tr>
+            <td>GTX 1660 Super</td>
+            <td>NVIDIA</td>
+            <td>229</td>
+            <td>6</td>
+            <td>125</td>
+            <td>4700</td>
+            <td>1785</td>
+            <td>1408</td>
+          </tr>
+          <tr>
+            <td>GTX 1650 Super</td>
+            <td>NVIDIA</td>
+            <td>179</td>
+            <td>4</td>
+            <td>100</td>
+            <td>4000</td>
+            <td>1665</td>
+            <td>1280</td>
+          </tr>
+          <tr>
+            <td>GTX 1650</td>
+            <td>NVIDIA</td>
+            <td>149</td>
+            <td>4</td>
+            <td>75</td>
+            <td>3500</td>
+            <td>1485</td>
+            <td>896</td>
+          </tr>
+
+          <tr>
+            <td>RX 7900 XTX</td>
+            <td>AMD</td>
+            <td>999</td>
+            <td>24</td>
+            <td>355</td>
+            <td>9300</td>
+            <td>2300</td>
+            <td>6144</td>
+          </tr>
+          <tr>
+            <td>RX 7900 XT</td>
+            <td>AMD</td>
+            <td>899</td>
+            <td>20</td>
+            <td>300</td>
+            <td>8800</td>
+            <td>2000</td>
+            <td>5376</td>
+          </tr>
+          <tr>
+            <td>RX 7800 XT</td>
+            <td>AMD</td>
+            <td>699</td>
+            <td>16</td>
+            <td>280</td>
+            <td>8200</td>
+            <td>2124</td>
+            <td>3840</td>
+          </tr>
+          <tr>
+            <td>RX 7700 XT</td>
+            <td>AMD</td>
+            <td>449</td>
+            <td>12</td>
+            <td>245</td>
+            <td>7200</td>
+            <td>2170</td>
+            <td>3456</td>
+          </tr>
+          <tr>
+            <td>RX 7600</td>
+            <td>AMD</td>
+            <td>269</td>
+            <td>8</td>
+            <td>165</td>
+            <td>6100</td>
+            <td>2250</td>
+            <td>2048</td>
+          </tr>
+          <tr>
+            <td>GTX 1080 Ti</td>
+            <td>NVIDIA</td>
+            <td>699</td>
+            <td>11</td>
+            <td>250</td>
+            <td>4200</td>
+            <td>1582</td>
+            <td>3584</td>
+          </tr>
+          <tr>
+            <td>GTX 1070</td>
+            <td>NVIDIA</td>
+            <td>449</td>
+            <td>8</td>
+            <td>150</td>
+            <td>3500</td>
+            <td>1506</td>
+            <td>1920</td>
+          </tr>
+          <tr>
+            <td>RX 5600 XT</td>
+            <td>AMD</td>
+            <td>279</td>
+            <td>6</td>
+            <td>150</td>
+            <td>5000</td>
+            <td>1615</td>
+            <td>2304</td>
+          </tr>
+          <tr>
+            <td>RX 5500 XT</td>
+            <td>AMD</td>
+            <td>199</td>
+            <td>8</td>
+            <td>130</td>
+            <td>4200</td>
+            <td>1717</td>
+            <td>1408</td>
+          </tr>
+          <tr>
+            <td>Intel Arc Pro A60</td>
+            <td>Intel</td>
+            <td>179</td>
+            <td>12</td>
+            <td>130</td>
+            <td>4100</td>
+            <td>1700</td>
+            <td>1536</td>
+          </tr>
+          <tr>
+            <td>Intel Arc Pro A40</td>
+            <td>Intel</td>
+            <td>149</td>
+            <td>6</td>
+            <td>75</td>
+            <td>3200</td>
+            <td>1500</td>
+            <td>1024</td>
+          </tr>
+          <tr>
+            <td>RX 6950 XT</td>
+            <td>AMD</td>
+            <td>1099</td>
+            <td>16</td>
+            <td>335</td>
+            <td>9100</td>
+            <td>2100</td>
+            <td>5120</td>
+          </tr>
+          <tr>
+            <td>RX 6900 XT</td>
+            <td>AMD</td>
+            <td>999</td>
+            <td>16</td>
+            <td>300</td>
+            <td>8900</td>
+            <td>2015</td>
+            <td>5120</td>
+          </tr>
+          <tr>
+            <td>RX 6800 XT</td>
+            <td>AMD</td>
+            <td>649</td>
+            <td>16</td>
+            <td>300</td>
+            <td>8500</td>
+            <td>2015</td>
+            <td>4608</td>
+          </tr>
+          <tr>
+            <td>RX 6800</td>
+            <td>AMD</td>
+            <td>579</td>
+            <td>16</td>
+            <td>250</td>
+            <td>8000</td>
+            <td>1815</td>
+            <td>3840</td>
+          </tr>
+          <tr>
+            <td>RX 6700 XT</td>
+            <td>AMD</td>
+            <td>479</td>
+            <td>12</td>
+            <td>230</td>
+            <td>7300</td>
+            <td>2321</td>
+            <td>2560</td>
+          </tr>
+
+          <tr>
+            <td>RX 6700</td>
+            <td>AMD</td>
+            <td>379</td>
+            <td>10</td>
+            <td>175</td>
+            <td>6800</td>
+            <td>2330</td>
+            <td>2304</td>
+          </tr>
+          <tr>
+            <td>RX 6600 XT</td>
+            <td>AMD</td>
+            <td>379</td>
+            <td>8</td>
+            <td>160</td>
+            <td>6500</td>
+            <td>2359</td>
+            <td>2048</td>
+          </tr>
+          <tr>
+            <td>RX 6600</td>
+            <td>AMD</td>
+            <td>299</td>
+            <td>8</td>
+            <td>132</td>
+            <td>6000</td>
+            <td>2044</td>
+            <td>1792</td>
+          </tr>
+          <tr>
+            <td>RX 6500 XT</td>
+            <td>AMD</td>
+            <td>199</td>
+            <td>4</td>
+            <td>107</td>
+            <td>4300</td>
+            <td>2610</td>
+            <td>1024</td>
+          </tr>
+          <tr>
+            <td>RX 6400</td>
+            <td>AMD</td>
+            <td>159</td>
+            <td>4</td>
+            <td>53</td>
+            <td>3500</td>
+            <td>2321</td>
+            <td>768</td>
+          </tr>
+          <tr>
+            <td>RX Vega 64</td>
+            <td>AMD</td>
+            <td>399</td>
+            <td>8</td>
+            <td>295</td>
+            <td>6100</td>
+            <td>1247</td>
+            <td>4096</td>
+          </tr>
+          <tr>
+            <td>RX Vega 56</td>
+            <td>AMD</td>
+            <td>299</td>
+            <td>8</td>
+            <td>210</td>
+            <td>5500</td>
+            <td>1156</td>
+            <td>3584</td>
+          </tr>
+          <tr>
+            <td>RX 590</td>
+            <td>AMD</td>
+            <td>229</td>
+            <td>8</td>
+            <td>175</td>
+            <td>4800</td>
+            <td>1545</td>
+            <td>2304</td>
+          </tr>
+          <tr>
+            <td>RX 580</td>
+            <td>AMD</td>
+            <td>199</td>
+            <td>8</td>
+            <td>150</td>
+            <td>4500</td>
+            <td>1340</td>
+            <td>2304</td>
+          </tr>
+          <tr>
+            <td>RX 570</td>
+            <td>AMD</td>
+            <td>149</td>
+            <td>4</td>
+            <td>120</td>
+            <td>4000</td>
+            <td>1168</td>
+            <td>2048</td>
+          </tr>
+
+          <tr>
+            <td>Arc A770</td>
+            <td>Intel</td>
+            <td>329</td>
+            <td>16</td>
+            <td>225</td>
+            <td>6700</td>
+            <td>2100</td>
+            <td>4096</td>
+          </tr>
+          <tr>
+            <td>Arc A750</td>
+            <td>Intel</td>
+            <td>289</td>
+            <td>8</td>
+            <td>225</td>
+            <td>6200</td>
+            <td>2050</td>
+            <td>3584</td>
+          </tr>
+          <tr>
+            <td>Arc A580</td>
+            <td>Intel</td>
+            <td>249</td>
+            <td>8</td>
+            <td>175</td>
+            <td>5800</td>
+            <td>1700</td>
+            <td>3072</td>
+          </tr>
+          <tr>
+            <td>Arc A380</td>
+            <td>Intel</td>
+            <td>139</td>
+            <td>6</td>
+            <td>75</td>
+            <td>4200</td>
+            <td>2000</td>
+            <td>1024</td>
+          </tr>
+          <tr>
+            <td>Arc A310</td>
+            <td>Intel</td>
+            <td>109</td>
+            <td>4</td>
+            <td>50</td>
+            <td>3000</td>
+            <td>1740</td>
+            <td>768</td>
+          </tr>
+          <tr>
+            <td>Iris Xe Max</td>
+            <td>Intel</td>
+            <td>129</td>
+            <td>4</td>
+            <td>30</td>
+            <td>2500</td>
+            <td>1650</td>
+            <td>768</td>
+          </tr>
+        </table>
+      </div>
+    </main>
+    <hr>
+    <footer>
+      <p align="center">
+        <strong
+          >Разработчик: Тарабукин А.А., группа Б9123-09.03.04 (3
+          подгруппа)</strong
+        >
+      </p>
+    </footer>
+  </body>
+</html>

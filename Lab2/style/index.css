@@ -48,7 +48,7 @@ main {
   overflow: hidden;
   margin-bottom: 30px;
   font-size: 0;
-  height: 350px;
+  height: 280px;
 }
 
 .videocard-images div {
@@ -197,8 +197,7 @@ main {
 .text-left {
   width: 30%;
   padding-right: 20px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  vertical-align: middle;
 }
 
 .image-center {
@@ -209,7 +208,7 @@ main {
   width: 100%;
   height: auto;
   max-height: 350px;
-  display: block;
+  vertical-align: middle;
 }
 
 .text-right {
@@ -217,6 +216,7 @@ main {
   padding-left: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  vertical-align: middle;
 }
 
 .button-container {
