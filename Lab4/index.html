@@ -15,69 +15,108 @@
         <p class="mb-0">Видеокарты</p>
       </div>
 
-      <nav class="mt-3">
-        <ul
-          class="list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0"
+      <nav class="navbar navbar-expand-md bg-light navbar-light">
+        <a class="navbar-brand" href="./index.html">Топ видеокарт</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
         >
-          <li>
-            <a
-              href="#"
-              class="d-inline-block px-3 py-1 border border-success rounded-top rounded-start text-success text-decoration-none bg-dark"
-            >
-              Самые лучшие видеокарты
-            </a>
-          </li>
-          <li>
-            <a
-              href="./table.html"
-              class="d-inline-block px-3 py-1 border border-secondary rounded text-light text-decoration-none bg-secondary"
-            >
-              Список самых лучших видеокарт
-            </a>
-          </li>
-        </ul>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./table.html">Таблица видеокарт</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
 
     <main class="d-flex flex-column align-items-center gap-5 mb-4">
-      <div class="w-100 px-3 px-md-0">
-        <div class="container-fluid px-0">
-          <div class="row g-0">
-            <div class="col-12 col-md-4 d-flex flex-column">
-              <div class="ratio ratio-4x3">
-                <img src="./images/4090.jpg" class="w-100 h-100 img-fluid" />
-              </div>
-
-              <div class="ratio ratio-4x3 mt-2 mt-md-1">
-                <img
-                  src="./images/2060_super.jpg"
-                  class="w-100 h-100 img-fluid"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-md-8 d-flex flex-column">
-              <div class="row g-0 flex-fill">
-                <div class="col-6">
-                  <div class="ratio ratio-16x9">
-                    <img src="./images/v3.jpg" class="w-100 h-100 img-fluid" />
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="ratio ratio-16x9">
-                    <img src="./images/v4.jpg" class="w-100 h-100 img-fluid" />
-                  </div>
+      <div class="container my-5">
+        <div class="w-100 px-3 px-md-0">
+          <div id="gallery" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                  <img
+                    src="./images/4090.jpg"
+                    class="img-fluid"
+                    alt="4090"
+                    style="width: 400px; height: 400px; object-fit: cover"
+                  />
                 </div>
               </div>
 
-              <div class="mt-2 mt-md-1">
-                <div class="ratio ratio-21x9">
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <img
+                    src="./images/2060_super.jpg"
+                    class="img-fluid"
+                    alt="2060 Super"
+                    style="width: 400px; height: 400px; object-fit: cover"
+                  />
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <img
+                    src="./images/v3.jpg"
+                    class="img-fluid"
+                    alt="v3"
+                    style="width: 400px; height: 400px; object-fit: cover"
+                  />
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <img
+                    src="./images/v4.jpg"
+                    class="img-fluid"
+                    alt="v4"
+                    style="width: 400px; height: 400px; object-fit: cover"
+                  />
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
                   <a href="./infoAboutVideocard.html">
-                    <img src="./images/v5.jpg" class="w-100 h-100 img-fluid" />
+                    <img
+                      src="./images/v5.jpg"
+                      class="img-fluid"
+                      alt="v5"
+                      style="width: 400px; height: 400px; object-fit: cover"
+                    />
                   </a>
                 </div>
               </div>
             </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#gallery"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+              <span class="visually-hidden">Назад</span>
+            </button>
+
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#gallery"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+              <span class="visually-hidden">Вперёд</span>
+            </button>
           </div>
         </div>
       </div>
@@ -87,31 +126,25 @@
           <div class="row g-3">
             <div class="col-12 col-lg-6">
               <div class="row g-3">
-                <div class="col-12 col-md-6 d-flex">
+                <div class="col-12 col-md-6">
                   <div
-                    class="card bg-dark text-success border border-success rounded-4 w-100 d-flex flex-column"
+                    class="card bg-dark text-success border border-success rounded-4 w-100"
                   >
                     <div class="card-body d-flex flex-column">
                       <h2 class="h5 text-center mb-3">
                         GeForce RTX 4090 (NVIDIA)
                       </h2>
                       <p class="small text-justify mb-3">
-                        GeForce RTX 4090 — флагманская игровая видеокарта
-                        NVIDIA, выпущенная в 2022 году на архитектуре Ada
-                        Lovelace. Она оснащена 24 ГБ памяти GDDR6X, работает на
-                        базе 16384 потоковых процессоров и обладает частотой
-                        ядра до 2520 МГц. Пиковая производительность превышает
-                        82 TFLOPS, что делает её одной из самых мощных карт для
-                        игр и профессиональных задач. Энергопотребление RTX 4090
-                        составляет до 450 Вт, для работы требуется блок питания
-                        от 850 Вт. Пропускная способность памяти достигает 1008
-                        ГБ/с, а шина памяти — 384 бит. Карта поддерживает
-                        трассировку лучей 3-го поколения и технологии DLSS 3.
+                        Видеокарта на архитектуре Ampere с графическим чипом
+                        GA102, оснащённая 10240 ядрами CUDA и 12 ГБ видеопамяти
+                        GDDR6X с 384-битной шиной. Частота Boost достигает около
+                        1665 МГц. RTX 3080 Ti обеспечивает производительность
+                        уровня 4K с высоким FPS, отлично подходит для игр на
+                        ультра-настройках и задач по рендерингу и работе с ИИ.
                       </p>
                       <div class="d-flex justify-content-center mb-3">
                         <img
                           src="./images/4090.jpg"
-                          alt="4090"
                           class="img-fluid rounded-3"
                         />
                       </div>
@@ -123,32 +156,25 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="col-12 col-md-6 d-flex">
                   <div
-                    class="card bg-dark text-success border border-success rounded-4 w-100 d-flex flex-column"
+                    class="card bg-dark text-success border border-success rounded-4 w-100"
                   >
                     <div class="card-body d-flex flex-column">
                       <h2 class="h5 text-center mb-3">
                         GeForce RTX 4070 Ti (NVIDIA)
                       </h2>
                       <p class="small text-justify mb-3">
-                        GeForce RTX 4070 Ti — высокопроизводительная видеокарта
-                        среднего класса на архитектуре Ada Lovelace. Она
-                        оснащена 12 ГБ памяти GDDR6X, имеет 7680 потоковых
-                        процессоров и базовую частоту ядра около 2310 МГц.
-                        Пропускная способность памяти составляет 504 ГБ/с, а
-                        энергопотребление — около 285 Вт.Энергопотребление RTX
-                        4090 составляет до 450 Вт, для работы требуется блок
-                        питания от 850 Вт. Пропускная способность памяти
-                        достигает 1008 ГБ/с, а шина памяти — 384 бит. Карта
-                        поддерживает трассировку лучей 3-го поколения и
-                        технологии DLSS 3.
+                        Видеокарта на архитектуре Ampere с графическим чипом
+                        GA102, оснащённая 10240 ядрами CUDA и 12 ГБ видеопамяти
+                        GDDR6X с 384-битной шиной. Частота Boost достигает около
+                        1665 МГц. RTX 3080 Ti обеспечивает производительность
+                        уровня 4K с высоким FPS, отлично подходит для игр на
+                        ультра-настройках и задач по рендерингу и работе с ИИ.
                       </p>
                       <div class="d-flex justify-content-center mb-3">
                         <img
                           src="./images/v3.jpg"
-                          alt="RTX 4070 Ti"
                           class="img-fluid rounded-3"
                         />
                       </div>
@@ -161,25 +187,26 @@
                   </div>
                 </div>
 
+                <!-- GTX 1080 Ti -->
                 <div class="col-12 col-md-6 d-flex">
                   <div
-                    class="card bg-dark text-success border border-success rounded-4 w-100 d-flex flex-column"
+                    class="card bg-dark text-success border border-success rounded-4 w-100"
                   >
                     <div class="card-body d-flex flex-column">
                       <div class="d-flex justify-content-center mb-3">
                         <img
                           src="./images/1080_ti.jpg"
-                          alt="1080 Ti"
                           class="img-fluid rounded-3"
                         />
                       </div>
                       <h2 class="h5 text-center mb-3">GTX 1080 Ti</h2>
                       <p class="small text-justify mb-3">
-                        карта на архитектуре Pascal с 3584 CUDA-ядрами и 11 ГБ
-                        GDDR5X памяти с 352-битной шиной. Несмотря на возраст,
-                        1080 Ti остаётся мощной картой для 1440p и иногда 4K
-                        игр, обеспечивая высокий FPS, однако поддержка новых
-                        технологий ограничена.
+                        Видеокарта на архитектуре Ampere с графическим чипом
+                        GA102, оснащённая 10240 ядрами CUDA и 12 ГБ видеопамяти
+                        GDDR6X с 384-битной шиной. Частота Boost достигает около
+                        1665 МГц. RTX 3080 Ti обеспечивает производительность
+                        уровня 4K с высоким FPS, отлично подходит для игр на
+                        ультра-настройках и задач по рендерингу и работе с ИИ.
                       </p>
                       <div class="mt-auto d-flex justify-content-start">
                         <button class="btn btn-sm btn-primary">
@@ -190,26 +217,26 @@
                   </div>
                 </div>
 
+                <!-- RTX 2060 Super -->
                 <div class="col-12 col-md-6 d-flex">
                   <div
-                    class="card bg-dark text-success border border-success rounded-4 w-100 d-flex flex-column"
+                    class="card bg-dark text-success border border-success rounded-4 w-100"
                   >
                     <div class="card-body d-flex flex-column">
                       <div class="d-flex justify-content-center mb-3">
                         <img
                           src="./images/2060_super.jpg"
-                          alt="RTX 2060 Super"
                           class="img-fluid rounded-3"
                         />
                       </div>
                       <h2 class="h5 text-center mb-3">RTX 2060 super</h2>
                       <p class="small text-justify mb-3">
-                        построена на архитектуре Turing с поддержкой трассировки
-                        лучей и ядер AI. Имеет 2176 CUDA-ядер, 8 ГБ GDDR6 памяти
-                        с 256-битной шиной и Boost-частоту около 1650 МГц. Эта
-                        видеокарта позволяет комфортно играть в разрешении 1440p
-                        с высокими настройками и обеспечивает производительность
-                        выше большинства карт предыдущего поколения.
+                        Видеокарта на архитектуре Ampere с графическим чипом
+                        GA102, оснащённая 10240 ядрами CUDA и 12 ГБ видеопамяти
+                        GDDR6X с 384-битной шиной. Частота Boost достигает около
+                        1665 МГц. RTX 3080 Ti обеспечивает производительность
+                        уровня 4K с высоким FPS, отлично подходит для игр на
+                        ультра-настройках и задач по рендерингу и работе с ИИ.
                       </p>
                       <div class="mt-auto d-flex justify-content-start">
                         <button class="btn btn-sm btn-primary">
@@ -222,92 +249,25 @@
               </div>
             </div>
 
-            <div class="col-12 col-lg-6">
-              <div class="d-flex flex-column gap-3">
+            <div class="col-12 col-lg-6 d-flex">
+              <div class="d-flex flex-column gap-3 h-100 w-100">
                 <div
-                  class="card bg-dark text-success border border-success rounded-4"
+                  class="card bg-dark text-success border border-success rounded-4 flex-grow-1"
                 >
-                  <div class="card-body">
-                    <div class="row g-3 align-items-center">
-                      <div class="col-12 col-md-4">
+                  <div class="card-body h-100 d-flex flex-column">
+                    <div class="row g-3 align-items-center h-100">
+                      <div
+                        class="col-12 col-md-4 d-flex justify-content-center"
+                      >
                         <img
                           src="./images/rx_6600.jpg"
-                          alt="RX 6600"
                           class="img-fluid rounded-3"
                         />
                       </div>
-                      <div class="col-12 col-md-3">
-                        <h2 class="h5 text-center text-md-center mb-0">
+                      <div class="col-12 col-md-8 d-flex flex-column">
+                        <h2 class="h5 text-center text-md-start mb-2">
                           RX 6600
                         </h2>
-                      </div>
-                      <div class="col-12 col-md-5">
-                        <p class="small text-justify mb-2">
-                          видеокарта на архитектуре RDNA2 с чипом Navi23,
-                          оснащённая 28 вычислительными блоками и 8 ГБ
-                          видеопамяти GDDR6 с 128-битной шиной. Частота «Game
-                          Clock» достигает около 2044 МГц. RX 6600 хорошо
-                          подходит для игр в Full HD (1080p) с высоким FPS и
-                          остаётся актуальной для большинства современных игр
-                          при ограниченном бюджете.
-                        </p>
-                        <div class="d-flex justify-content-end">
-                          <button class="btn btn-sm btn-primary">
-                            Подробнее »
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="card bg-dark text-success border border-success rounded-4"
-                >
-                  <div class="card-body">
-                    <div class="row g-3 align-items-center">
-                      <div class="col-12 col-md-4">
-                        <img
-                          src="./images/rx_9070.jpg"
-                          alt="RX 9070"
-                          class="img-fluid rounded-3"
-                        />
-                      </div>
-                      <div class="col-12 col-md-3">
-                        <h2 class="h5 text-center text-md-center mb-0">
-                          RX 9070
-                        </h2>
-                      </div>
-                      <div class="col-12 col-md-5">
-                        <p class="small text-justify mb-2">
-                          современная видеокарта на архитектуре RDNA 4 с 56
-                          вычислительными блоками и 16 ГБ памяти GDDR6. Частота
-                          Boost достигает примерно 2.52 ГГц. RX 9070
-                          ориентирована на игры в 1440p и 4K с высокими
-                          настройками, обеспечивая запас производительности и
-                          актуальность на несколько лет вперёд.
-                        </p>
-                        <div class="d-flex justify-content-end">
-                          <button class="btn btn-sm btn-primary">
-                            Подробнее »
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="card bg-dark text-success border border-success rounded-4"
-                >
-                  <div class="card-body">
-                    <div class="row g-3 align-items-center">
-                      <div class="col-12 col-md-3">
-                        <h2 class="h5 text-center text-md-center mb-0">
-                          RTX 3080 Ti
-                        </h2>
-                      </div>
-                      <div class="col-12 col-md-6">
                         <p class="small text-justify mb-2">
                           Видеокарта на архитектуре Ampere с графическим чипом
                           GA102, оснащённая 10240 ядрами CUDA и 12 ГБ
@@ -317,56 +277,116 @@
                           подходит для игр на ультра-настройках и задач по
                           рендерингу и работе с ИИ.
                         </p>
-                        <div class="d-flex justify-content-end">
+                        <div class="mt-auto d-flex justify-content-end">
                           <button class="btn btn-sm btn-primary">
                             Подробнее »
                           </button>
                         </div>
-                      </div>
-                      <div class="col-12 col-md-3">
-                        <img
-                          src="./images/v4.jpg"
-                          alt="RTX 3080 Ti"
-                          class="img-fluid rounded-3"
-                        />
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div
-                  class="card bg-dark text-success border border-success rounded-4"
+                  class="card bg-dark text-success border border-success rounded-4 flex-grow-1"
                 >
-                  <div class="card-body">
-                    <div class="row g-3 align-items-center">
-                      <div class="col-12 col-md-3">
-                        <h2 class="h5 text-center text-md-center mb-0">
-                          RTX 4080
-                        </h2>
+                  <div class="card-body h-100 d-flex flex-column">
+                    <div class="row g-3 align-items-center h-100">
+                      <div
+                        class="col-12 col-md-4 d-flex justify-content-center"
+                      >
+                        <img
+                          src="./images/rx_9070.jpg"
+                          class="img-fluid rounded-3"
+                        />
                       </div>
-                      <div class="col-12 col-md-6">
+                      <div class="col-12 col-md-8 d-flex flex-column">
+                        <h2 class="h5 text-center text-md-start mb-2">
+                          RX 9070
+                        </h2>
                         <p class="small text-justify mb-2">
-                          Видеокарта на архитектуре Ada Lovelace с графическим
-                          чипом AD103, оснащённая 9728 ядрами CUDA и 16 ГБ
-                          видеопамяти GDDR6X с 256-битной шиной. Частота Boost
-                          достигает около 2505 МГц. RTX 4080 обеспечивает
-                          отличную производительность в 4K, поддерживает
-                          трассировку лучей и технологии DLSS 3, идеально
-                          подходит для современных игр и профессиональных
-                          графических задач.
+                          Видеокарта на архитектуре Ampere с графическим чипом
+                          GA102, оснащённая 10240 ядрами CUDA и 12 ГБ
+                          видеопамяти GDDR6X с 384-битной шиной. Частота Boost
+                          достигает около 1665 МГц. RTX 3080 Ti обеспечивает
+                          производительность уровня 4K с высоким FPS, отлично
+                          подходит для игр на ультра-настройках и задач по
+                          рендерингу и работе с ИИ.
                         </p>
-                        <div class="d-flex justify-content-end">
+                        <div class="mt-auto d-flex justify-content-end">
                           <button class="btn btn-sm btn-primary">
                             Подробнее »
                           </button>
                         </div>
                       </div>
-                      <div class="col-12 col-md-3">
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="card bg-dark text-success border border-success rounded-4 flex-grow-1"
+                >
+                  <div class="card-body h-100 d-flex flex-column">
+                    <div class="row g-3 align-items-center h-100">
+                      <div
+                        class="col-12 col-md-4 d-flex justify-content-center"
+                      >
                         <img
-                          src="./images/v2.jpg"
-                          alt="RTX 4080"
+                          src="./images/v4.jpg"
                           class="img-fluid rounded-3"
                         />
+                      </div>
+                      <div class="col-12 col-md-8 d-flex flex-column">
+                        <h2 class="h5 text-center text-md-start mb-2">
+                          RTX 3080 Ti
+                        </h2>
+                        <p class="small text-justify mb-2">
+                          Видеокарта на архитектуре Ampere с графическим чипом
+                          GA102, оснащённая 10240 ядрами CUDA и 12 ГБ
+                          видеопамяти GDDR6X с 384-битной шиной. Частота Boost
+                          достигает около 1665 МГц. RTX 3080 Ti обеспечивает
+                          производительность уровня 4K с высоким FPS, отлично
+                          подходит для игр на ультра-настройках и задач по
+                          рендерингу и работе с ИИ.
+                        </p>
+                        <div class="mt-auto d-flex">
+                          <button class="btn btn-sm btn-primary">
+                            Подробнее »
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card bg-dark text-success border border-success rounded-4 flex-grow-1"
+                >
+                  <div class="card-body h-100 d-flex flex-column">
+                    <div class="row g-3 align-items-center h-100">
+                      <div class="col-12 col-md-4 d-flex">
+                        <img
+                          src="./images/v2.jpg"
+                          class="img-fluid rounded-3"
+                        />
+                      </div>
+                      <div class="col-12 col-md-8 d-flex flex-column">
+                        <h2 class="h5 text-center text-md-start mb-2">
+                          RTX 4080
+                        </h2>
+                        <p class="small text-justify mb-2">
+                          Видеокарта на архитектуре Ampere с графическим чипом
+                          GA102, оснащённая 10240 ядрами CUDA и 12 ГБ
+                          видеопамяти GDDR6X с 384-битной шиной. Частота Boost
+                          достигает около 1665 МГц. RTX 3080 Ti обеспечивает
+                          производительность уровня 4K с высоким FPS, отлично
+                          подходит для игр на ультра-настройках и задач по
+                          рендерингу и работе с ИИ.
+                        </p>
+                        <div class="mt-auto d-flex justify-content-end">
+                          <button class="btn btn-sm btn-primary">
+                            Подробнее »
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -382,9 +402,9 @@
       class="bg-dark text-center text-light border-top border-success py-3 mt-4"
     >
       <p class="mb-0">
-        <strong class="text-success"
-          >Разработчик: Тарабукин А.А., группа Б9123-09.03.04</strong
-        >
+        <strong class="text-success">
+          Разработчик: Тарабукин А.А., группа Б9123-09.03.04
+        </strong>
       </p>
     </footer>
   </body>
