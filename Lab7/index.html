@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Калькулятор равнобедренного треугольника</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="code.js" defer></script>
+  </head>
+  <body>
+    <h1>Калькулятор равнобедренного треугольника</h1>
+
+    <div class="input-group">
+      <label>
+        <input
+          type="radio"
+          name="inputType"
+          value="base_angle_adjacent"
+          checked
+          onchange="updateView()"
+        />
+        Основание и прилежащий угол </label
+      ><br />
+      <label>
+        <input
+          type="radio"
+          name="inputType"
+          value="base_angle_opposite"
+          onchange="updateView()"
+        />
+        Основание и противолежащий угол
+      </label>
+    </div>
+
+    <button id="showButton" onclick="updateView()">Показать</button>
+
+    <div id="imageContainer" style="margin: 20px 0"></div>
+
+    <div id="inputFields"></div>
+
+    <p>Выберите характеристики (удерживайте Ctrl для выбора нескольких):</p>
+    <select id="characteristicsSelect" multiple size="3" style="width: 300px">
+      <option value="height" selected>Высоты</option>
+      <option value="inradius">Радиус вписанной окружности</option>
+      <option value="median">Медианы</option>
+    </select>
+
+    <br /><br />
+    <button onclick="calculate()">Вычислить</button>
+    <button onclick="clearInputs()">Очистить</button>
+
+    <div id="resultDiv" class="calculation-result"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
