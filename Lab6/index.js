@@ -1,114 +1,170 @@
-function decod(str) {
-  let n = 0;
-  while (n ** 2 < str.length) {
-    n += 1;
-  }
+// function decod(str) {
+//   let n = 0;
+//   while (n ** 2 < str.length) {
+//     n += 1;
+//   }
 
-  let substr = [];
+//   let substr = [];
 
-  let decodString = "";
+//   let decodString = "";
 
-  let resStrings = [];
+//   let resStrings = [];
 
-  for (let i = 0; i < str.length; i += n) {
-    substr.push(str.slice(i, i + n));
-  }
-  const R = substr.length;
-  const C = substr[0].length;
+//   for (let i = 0; i < str.length; i += n) {
+//     substr.push(str.slice(i, i + n));
+//   }
+//   const R = substr.length;
+//   const C = substr[0].length;
 
-  for (let r = 0; r < R; r++) {
-    for (let i = r, j = 0; i >= 0 && j < C; i--, j++) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
+//   for (let r = 0; r < R; r++) {
+//     for (let i = r, j = 0; i >= 0 && j < C; i--, j++) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
 
-  for (let c = 1; c < C; c++) {
-    for (let i = R - 1, j = c; i >= 0 && j < C; i--, j++) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
+//   for (let c = 1; c < C; c++) {
+//     for (let i = R - 1, j = c; i >= 0 && j < C; i--, j++) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
 
-  resStrings.push(decodString);
-  decodString = "";
+//   resStrings.push(decodString);
+//   decodString = "";
 
-  for (let c = C - 1; c >= 0; c--) {
-    for (let i = 0, j = c; i < R && j < C; i++, j++) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
-  for (let r = 1; r < R; r++) {
-    for (let i = r, j = 0; i < R && j < C; i++, j++) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
+//   for (let c = C - 1; c >= 0; c--) {
+//     for (let i = 0, j = c; i < R && j < C; i++, j++) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
+//   for (let r = 1; r < R; r++) {
+//     for (let i = r, j = 0; i < R && j < C; i++, j++) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
 
-  resStrings.push(decodString);
-  decodString = "";
+//   resStrings.push(decodString);
+//   decodString = "";
 
-  for (let r = R - 1; r >= 0; r--) {
-    for (let i = r, j = C - 1; i < R && j >= 0; i++, j--) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
-  for (let c = C - 2; c >= 0; c--) {
-    for (let i = 0, j = c; i < R && j >= 0; i++, j--) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
-  resStrings.push(decodString);
-  decodString = "";
+//   for (let r = R - 1; r >= 0; r--) {
+//     for (let i = r, j = C - 1; i < R && j >= 0; i++, j--) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
+//   for (let c = C - 2; c >= 0; c--) {
+//     for (let i = 0, j = c; i < R && j >= 0; i++, j--) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
+//   resStrings.push(decodString);
+//   decodString = "";
 
-  for (let c = 0; c < C; c++) {
-    for (let i = R - 1, j = c; i >= 0 && j >= 0; i--, j--) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
-  for (let r = R - 2; r >= 0; r--) {
-    for (let i = r, j = C - 1; i >= 0 && j >= 0; i--, j--) {
-      if (substr[i][j] == "_") {
-        decodString += " ";
-      } else {
-        decodString += substr[i][j];
-      }
-    }
-  }
+//   for (let c = 0; c < C; c++) {
+//     for (let i = R - 1, j = c; i >= 0 && j >= 0; i--, j--) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
+//   for (let r = R - 2; r >= 0; r--) {
+//     for (let i = r, j = C - 1; i >= 0 && j >= 0; i--, j--) {
+//       if (substr[i][j] == "_") {
+//         decodString += " ";
+//       } else {
+//         decodString += substr[i][j];
+//       }
+//     }
+//   }
 
-  resStrings.push(decodString);
-  decodString = "";
+//   resStrings.push(decodString);
+//   decodString = "";
 
-  for (i of resStrings) {
-    console.log(i + "\n");
-  }
-}
+//   for (i of resStrings) {
+//     console.log(i + "\n");
+//   }
+// }
 
-decod(
-  "_садл_оибятвжтвтыеьиеыеь_двгн_с_саед_диро.лекоеах_он_—,врЧсив_ннатиеокьиноп_жа_зж"
-);
+// decod(
+//   "_садл_оибятвжтвтыеьиеыеь_двгн_с_саед_диро.лекоеах_он_—,врЧсив_ннатиеокьиноп_жа_зж",
+// );
+// let arrowFunc = (...arg) => {
+//   let num = [];
+//   let res2 = "";
+//   for (a of arg) {
+//     for (i of a.split(" ")) {
+//       if (!isNaN(Number(i))) {
+//         num.push(i);
+//       }
+//     }
+//   }
+
+//   for (st of num) {
+//     let count = 0;
+//     for (i = 0; i < st.length; i++) {
+//       for (j = i + 1; j < st.length; j++) {
+//         if (st[i] == st[j]) {
+//           count += 1;
+//         }
+//       }
+//     }
+//     if (count > 0) {
+//       res2 += st + " ";
+//     }
+//   }
+
+//   console.log(res2);
+// };
+// arrowFunc(
+//   "ffdgd 1231",
+//   "1114441",
+//   "11.11",
+//   "fdsfs 432342 fwfsd 444 ggff hhg",
+//   "12345",
+//   "123457897",
+//   "23456"
+// );
+
+// let fun = (str) => {
+//   item = {};
+
+//   return item;
+// };
+
+alert(document.body.nextSibling); // результат:
+
+alert(document.body.nextElementSibling); // результат:
+
+alert(document.body.children[1].childNodes[0]); // результат:
+
+alert(document.body.previousElementSibling); // результат:
+
+alert(document.body.children[0].childNodes[1].previousSibling); // результат:
+
+alert(document.documentElement.parentNode); // результат:
+
+alert(document.body.children[2]); // результат:

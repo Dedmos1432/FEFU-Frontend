@@ -1,167 +1,244 @@
-function drawTriangle(type) {
-  const container = document.getElementById("imageContainer");
-  let svgContent = "";
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("triangleForm");
+  const imageContainer = document.getElementById("imageContainer");
+  const resultDiv = document.getElementById("resultDiv");
+  const showButton = document.getElementById("showButton");
 
-  if (type === "base_angle_adjacent") {
-    svgContent = `
+  const baseField = document.getElementById("baseField");
+  const adjacentAngleField = document.getElementById("adjacentAngleField");
+  const oppositeAngleField = document.getElementById("oppositeAngleField");
+
+  let isImageVisible = true;
+  updateView();
+
+  showButton.textContent = "Скрыть изображение";
+
+  form.addEventListener("change", (e) => {
+    if (e.target.name === "inputType") {
+      isImageVisible = true;
+      updateView();
+      showButton.textContent = "Скрыть изображение";
+    }
+  });
+
+  showButton.addEventListener("click", () => {
+    isImageVisible = !isImageVisible;
+    imageContainer.style.display = isImageVisible ? "block" : "none";
+    showButton.textContent = isImageVisible
+      ? "Скрыть изображение"
+      : "Показать изображение";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    calculate();
+  });
+
+  form.addEventListener("reset", () => {
+    resultDiv.style.display = "none";
+    clearErrors();
+    isImageVisible = true;
+    updateView();
+    showButton.textContent = "Скрыть изображение";
+  });
+
+  setupFieldListeners();
+
+  function drawTriangle(type) {
+    let svgContent = "";
+    if (type === "base_angle_adjacent") {
+      svgContent = `
         <svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 100 20 L 170 130 L 30 130 Z" fill="none" stroke="black" stroke-width="2"/>
-            <text x="90" y="145" font-family="Arial" font-size="14" fill="blue">b (основание)</text>
-            <path d="M 50 130 A 20 20 0 0 0 65 115" fill="none" stroke="red" stroke-width="2"/>
-            <text x="40" y="110" font-family="Arial" font-size="14" fill="red">α</text>
-            <text x="45" y="80" font-family="Arial" font-size="12">a</text>
-            <text x="145" y="80" font-family="Arial" font-size="12">a</text>
+          <path d="M100,20 L170,130 L30,130 Z" fill="none" stroke="black" stroke-width="2"/>
+          <text x="90" y="145" font-family="Arial" font-size="14" fill="blue">b (основание)</text>
+          <path d="M50,130 A20,20 0 0,0 65,115" fill="none" stroke="red" stroke-width="2"/>
+          <text x="40" y="110" font-family="Arial" font-size="14" fill="red">α</text>
+          <text x="45" y="80" font-family="Arial" font-size="12">a</text>
+          <text x="145" y="80" font-family="Arial" font-size="12">a</text>
         </svg>`;
-  } else {
-    svgContent = `
+    } else {
+      svgContent = `
         <svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 100 20 L 170 130 L 30 130 Z" fill="none" stroke="black" stroke-width="2"/>
-            <text x="90" y="145" font-family="Arial" font-size="14" fill="blue">b (основание)</text>
-            <path d="M 90 35 A 15 15 0 0 0 110 35" fill="none" stroke="red" stroke-width="2"/>
-            <text x="95" y="55" font-family="Arial" font-size="14" fill="red">γ</text>
-            <text x="45" y="80" font-family="Arial" font-size="12">a</text>
-            <text x="145" y="80" font-family="Arial" font-size="12">a</text>
+          <path d="M100,20 L170,130 L30,130 Z" fill="none" stroke="black" stroke-width="2"/>
+          <text x="90" y="145" font-family="Arial" font-size="14" fill="blue">b (основание)</text>
+          <path d="M90,35 A15,15 0 0,0 110,35" fill="none" stroke="red" stroke-width="2"/>
+          <text x="95" y="55" font-family="Arial" font-size="14" fill="red">γ</text>
+          <text x="45" y="80" font-family="Arial" font-size="12">a</text>
+          <text x="145" y="80" font-family="Arial" font-size="12">a</text>
         </svg>`;
-  }
-  container.innerHTML = svgContent;
-}
-
-function getInputType() {
-  return document.querySelector('input[name="inputType"]:checked').value;
-}
-
-function updateView() {
-  const inputType = getInputType();
-  const fieldsContainer = document.getElementById("inputFields");
-
-  drawTriangle(inputType);
-
-  let fieldHTML = `
-        <div class="input-group">
-            <label for="baseInput">Длина основания (b):</label><br>
-            <input type="number" id="baseInput" step="any">
-            <span id="baseError" class="error-text" style="display: none;">Введите положительное число</span>
-        </div>
-    `;
-
-  if (inputType === "base_angle_adjacent") {
-    fieldHTML += `
-            <div class="input-group">
-                <label for="angleInput">Прилежащий угол (α) в градусах:</label><br>
-                <input type="number" id="angleInput" step="any">
-                <span id="angleError" class="error-text" style="display: none;">Угол должен быть > 0 и < 90°</span>
-            </div>
-        `;
-  } else {
-    fieldHTML += `
-            <div class="input-group">
-                <label for="angleInput">Противолежащий угол (γ) в градусах:</label><br>
-                <input type="number" id="angleInput" step="any">
-                <span id="angleError" class="error-text" style="display: none;">Угол должен быть > 0 и < 180°</span>
-            </div>
-        `;
+    }
+    imageContainer.innerHTML = svgContent;
   }
 
-  fieldsContainer.innerHTML = fieldHTML;
-  document.getElementById("resultDiv").style.display = "none";
-}
-
-function isValidPositiveNumber(value) {
-  return value !== "" && !isNaN(value) && parseFloat(value) > 0;
-}
-
-function isValidAngle(value, type) {
-  if (value === "" || isNaN(value)) return false;
-  const angle = parseFloat(value);
-  return type === "base_angle_adjacent"
-    ? angle > 0 && angle < 90
-    : angle > 0 && angle < 180;
-}
-
-function clearErrors() {
-  document
-    .querySelectorAll(".error-text")
-    .forEach((s) => (s.style.display = "none"));
-  document
-    .querySelectorAll("input")
-    .forEach((i) => i.classList.remove("error"));
-}
-
-function calculate() {
-  clearErrors();
-  const inputType = getInputType();
-  const baseValue = document.getElementById("baseInput").value;
-  const angleValue = document.getElementById("angleInput").value;
-  let hasErrors = false;
-
-  if (!isValidPositiveNumber(baseValue)) {
-    document.getElementById("baseInput").classList.add("error");
-    document.getElementById("baseError").style.display = "inline";
-    hasErrors = true;
+  function getInputType() {
+    return form.inputType.value;
   }
 
-  if (!isValidAngle(angleValue, inputType)) {
-    document.getElementById("angleInput").classList.add("error");
-    document.getElementById("angleError").style.display = "inline";
-    hasErrors = true;
+  function updateView() {
+    const inputType = getInputType();
+    drawTriangle(inputType);
+    imageContainer.style.display = "block";
+
+    if (inputType === "base_angle_adjacent") {
+      adjacentAngleField.style.display = "block";
+      oppositeAngleField.style.display = "none";
+    } else {
+      adjacentAngleField.style.display = "none";
+      oppositeAngleField.style.display = "block";
+    }
+
+    resultDiv.style.display = "none";
   }
 
-  if (hasErrors) return;
+  function setupFieldListeners() {
+    const baseInputs = form.querySelectorAll('input[name="base"]');
+    const angleInputs = form.querySelectorAll('input[name="angle"]');
 
-  const b = parseFloat(baseValue);
-  const angleDeg = parseFloat(angleValue);
-  let alpha, gamma;
+    function hideErrorFor(input) {
+      input.classList.remove("error");
+      const errorEl = input
+        .closest(".input-group")
+        .querySelector(".error-text");
+      if (errorEl) errorEl.style.display = "none";
+    }
 
-  if (inputType === "base_angle_adjacent") {
-    alpha = (angleDeg * Math.PI) / 180;
-    gamma = Math.PI - 2 * alpha;
-  } else {
-    gamma = (angleDeg * Math.PI) / 180;
-    alpha = (Math.PI - gamma) / 2;
+    baseInputs.forEach((input) => {
+      input.addEventListener("input", () => hideErrorFor(input));
+      input.addEventListener("focus", () => hideErrorFor(input));
+    });
+
+    angleInputs.forEach((input) => {
+      input.addEventListener("input", () => hideErrorFor(input));
+      input.addEventListener("focus", () => hideErrorFor(input));
+    });
   }
 
-  const a = b / (2 * Math.cos(alpha));
-  const h_base = (b / 2) * Math.tan(alpha);
-  const S = 0.5 * b * h_base;
-  const p = (2 * a + b) / 2;
-
-  const selectedOptions = Array.from(
-    document.getElementById("characteristicsSelect").selectedOptions
-  ).map((o) => o.value);
-  let resultText = "<h3>Результаты:</h3>";
-
-  if (selectedOptions.length === 0) {
-    resultText += "<p>Выберите хотя бы одну характеристику.</p>";
+  function getErrorElement(fieldName) {
+    if (fieldName === "base") {
+      return baseField.querySelector(".error-text");
+    }
+    const type = getInputType();
+    if (type === "base_angle_adjacent") {
+      return adjacentAngleField.querySelector(".error-text");
+    } else {
+      return oppositeAngleField.querySelector(".error-text");
+    }
   }
 
-  if (selectedOptions.includes("height")) {
-    const h_side = (2 * S) / a;
-    resultText += `<p>Высота к основанию: ${h_base.toFixed(2)}</p>`;
-    resultText += `<p>Высота к боковой стороне: ${h_side.toFixed(2)}</p>`;
+  function isValidPositiveNumber(value) {
+    return value !== "" && !isNaN(value) && parseFloat(value) > 0;
   }
 
-  if (selectedOptions.includes("inradius")) {
-    const r = S / p;
-    resultText += `<p>Радиус вписанной окружности: ${r.toFixed(2)}</p>`;
+  function isValidAngle(value, type) {
+    if (value === "" || isNaN(value)) return false;
+    const angle = parseFloat(value);
+    return type === "base_angle_adjacent"
+      ? angle > 0 && angle < 90
+      : angle > 0 && angle < 180;
   }
 
-  if (selectedOptions.includes("median")) {
-    const m_base = h_base;
-    const m_side = 0.5 * Math.sqrt(a * a + 2 * b * b);
-    resultText += `<p>Медиана к основанию: ${m_base.toFixed(2)}</p>`;
-    resultText += `<p>Медиана к боковой стороне: ${m_side.toFixed(2)}</p>`;
+  function clearErrors() {
+    form
+      .querySelectorAll(".error-text")
+      .forEach((el) => (el.style.display = "none"));
+    form
+      .querySelectorAll("input")
+      .forEach((input) => input.classList.remove("error"));
   }
 
-  const resDiv = document.getElementById("resultDiv");
-  resDiv.innerHTML = resultText;
-  resDiv.style.display = "block";
-}
+  function calculate() {
+    clearErrors();
+    const inputType = getInputType();
 
-function clearInputs() {
-  document.getElementById("baseInput").value = "";
-  document.getElementById("angleInput").value = "";
-  document.getElementById("resultDiv").style.display = "none";
-  clearErrors();
-}
+    const baseValue = form.querySelector('input[name="base"]').value;
 
-window.onload = updateView;
+    let angleValue = "";
+    if (inputType === "base_angle_adjacent") {
+      angleValue = adjacentAngleField.querySelector("input").value;
+    } else {
+      angleValue = oppositeAngleField.querySelector("input").value;
+    }
+
+    let hasErrors = false;
+
+    if (!isValidPositiveNumber(baseValue)) {
+      form.querySelector('input[name="base"]').classList.add("error");
+      getErrorElement("base").style.display = "inline";
+      hasErrors = true;
+    }
+
+    if (!isValidAngle(angleValue, inputType)) {
+      const angleInput =
+        inputType === "base_angle_adjacent"
+          ? adjacentAngleField.querySelector("input")
+          : oppositeAngleField.querySelector("input");
+      angleInput.classList.add("error");
+      getErrorElement("angle").style.display = "inline";
+      hasErrors = true;
+    }
+
+    if (hasErrors) return;
+
+    const b = parseFloat(baseValue);
+    const angleDeg = parseFloat(angleValue);
+    let alpha, gamma;
+
+    if (inputType === "base_angle_adjacent") {
+      alpha = (angleDeg * Math.PI) / 180;
+      gamma = Math.PI - 2 * alpha;
+    } else {
+      gamma = (angleDeg * Math.PI) / 180;
+      alpha = (Math.PI - gamma) / 2;
+    }
+
+    const a = b / (2 * Math.cos(alpha));
+    const h_base = (b / 2) * Math.tan(alpha);
+    const S = 0.5 * b * h_base;
+    const p = (2 * a + b) / 2;
+
+    const selected = [];
+    const options = form.characteristics.options;
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        selected.push(options[i].value);
+      }
+    }
+
+    let resultText = "<h3>Результаты:</h3>";
+
+    if (selected.length === 0) {
+      resultText += "<p>Выберите хотя бы одну характеристику.</p>";
+    }
+
+    if (selected.includes("height")) {
+      const h_side = (2 * S) / a;
+      resultText += `<p>Высота к основанию: ${h_base.toFixed(2)}</p>`;
+      resultText += `<p>Высота к боковой стороне: ${h_side.toFixed(2)}</p>`;
+    }
+
+    if (selected.includes("inradius")) {
+      const r = S / p;
+      resultText += `<p>Радиус вписанной окружности: ${r.toFixed(2)}</p>`;
+    }
+
+    if (selected.includes("median")) {
+      const m_base = h_base;
+      const m_side = 0.5 * Math.sqrt(a * a + 2 * b * b);
+      resultText += `<p>Медиана к основанию: ${m_base.toFixed(2)}</p>`;
+      resultText += `<p>Медиана к боковой стороне: ${m_side.toFixed(2)}</p>`;
+    }
+
+    resultDiv.innerHTML = resultText;
+    resultDiv.style.display = "block";
+  }
+});
+
+let a = 1;
+let b = {
+  toString() {
+    return "1";
+  },
+};
+let c = 1;
+
+console.log(a + b + c);

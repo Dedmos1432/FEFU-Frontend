@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Калькулятор равнобедренного треугольника</title>
     <link rel="stylesheet" href="style.css" />
     <script src="code.js" defer></script>
@@ -9,46 +10,64 @@
   <body>
     <h1>Калькулятор равнобедренного треугольника</h1>
 
-    <div class="input-group">
-      <label>
-        <input
-          type="radio"
-          name="inputType"
-          value="base_angle_adjacent"
-          checked
-          onchange="updateView()"
-        />
-        Основание и прилежащий угол </label
-      ><br />
-      <label>
-        <input
-          type="radio"
-          name="inputType"
-          value="base_angle_opposite"
-          onchange="updateView()"
-        />
-        Основание и противолежащий угол
-      </label>
-    </div>
+    <form id="triangleForm">
+      <div class="input-group">
+        <label>
+          <input
+            type="radio"
+            name="inputType"
+            value="base_angle_adjacent"
+            checked
+          />
+          Основание и прилежащий угол </label
+        ><br />
+        <label>
+          <input type="radio" name="inputType" value="base_angle_opposite" />
+          Основание и противолежащий угол
+        </label>
+      </div>
 
-    <button id="showButton" onclick="updateView()">Показать</button>
+      <button type="button" id="showButton">Скрыть изображение</button>
 
-    <div id="imageContainer" style="margin: 20px 0"></div>
+      <div id="imageContainer" style="margin: 20px 0"></div>
 
-    <div id="inputFields"></div>
+      <div id="baseField" class="input-group">
+        <label>Длина основания (b):</label><br />
+        <input type="number" name="base" step="any" />
+        <span class="error-text" data-for="base" style="display: none"
+          >Введите положительное число</span
+        >
+      </div>
 
-    <p>Выберите характеристики (удерживайте Ctrl для выбора нескольких):</p>
-    <select id="characteristicsSelect" multiple size="3" style="width: 300px">
-      <option value="height" selected>Высоты</option>
-      <option value="inradius">Радиус вписанной окружности</option>
-      <option value="median">Медианы</option>
-    </select>
+      <div id="adjacentAngleField" class="input-group">
+        <label>Прилежащий угол (α) в градусах:</label><br />
+        <input type="number" name="angle" step="any" />
+        <span class="error-text" data-for="angle" style="display: none"
+          >Угол должен быть > 0 и < 90°</span
+        >
+      </div>
 
-    <br /><br />
-    <button onclick="calculate()">Вычислить</button>
-    <button onclick="clearInputs()">Очистить</button>
+      <div id="oppositeAngleField" class="input-group" style="display: none">
+        <label>Противолежащий угол (γ) в градусах:</label><br />
+        <input type="number" name="angle" step="any" />
+        <span class="error-text" data-for="angle" style="display: none"
+          >Угол должен быть > 0 и < 180°</span
+        >
+      </div>
 
-    <div id="resultDiv" class="calculation-result"></div>
+      <p>Выберите характеристики (удерживайте Ctrl для выбора нескольких):</p>
+      <select name="characteristics" multiple size="3" style="width: 300px">
+        <option value="height">Высоты</option>
+        <option value="inradius">Радиус вписанной окружности</option>
+        <option value="median">Медианы</option>
+      </select>
+
+      <br /><br />
+      <button type="submit">Вычислить</button>
+      <button type="reset">Очистить</button>
+    </form>
+
+    <div id="resultDiv" class="calculation-result" style="display: none"></div>
 
     <script src="script.js"></script>
   </body>
