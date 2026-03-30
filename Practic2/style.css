@@ -1,0 +1,12 @@
+body {
+  padding: 20px;
+}
+
+#anim-form div {
+  margin-bottom: 5px;
+}
+
+svg {
+  border: 1px solid black;
+  margin-top: 10px;
+}

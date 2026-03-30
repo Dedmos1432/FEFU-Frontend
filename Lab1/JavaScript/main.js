@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   setSortSelects(buildings, document.getElementById("sort"));
+  const graphForm = d3.select("#graph_settings");
+  drawGraph(buildings, graphForm);
+  const buildBtn = document.getElementById("buildGraphBtn");
+  buildBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    drawGraph(buildings, graphForm);
+  });
 });
 
 const createOption = (str, val) => {

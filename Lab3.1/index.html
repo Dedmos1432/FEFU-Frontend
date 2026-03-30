@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <script src="http://d3js.org/d3.v7.min.js"></script>
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/table.js"></script>
+    <script src="JavaScript/chart.js"></script>
+    <title>Высочайшие здания</title>
+  </head>
+  <body>
+    <h3>Список самых высоких зданий</h3>
+
+    <div class="controls-form">
+      <div class="form-section">
+        <p>Значение по оси ОХ</p>
+        <div class="radio-group">
+          <div>
+            <input type="radio" id="oxCountry" name="groupKey" value="Страна" />
+            <label for="oxCountry">Страна</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="oxYear"
+              name="groupKey"
+              value="Год"
+              checked
+            />
+            <label for="oxYear">Год</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <p>Значение по оси ОУ</p>
+        <div class="checkbox-group">
+          <div>
+            <input type="checkbox" id="showMax" checked />
+            <label for="showMax">Максимальная высота</label>
+          </div>
+          <div>
+            <input type="checkbox" id="showMin" checked />
+            <label for="showMin">Минимальная высота</label>
+          </div>
+        </div>
+      </div>
+      <p>
+        Тип графика
+        <select id="chartType">
+          <option value="dot">Точечная</option>
+          <option value="gist">Гистограмма</option>
+        </select>
+      </p>
+      <div id="error-message"></div>
+      <button id="buildGraphBtn">Построить</button>
+    </div>
+
+    <svg></svg>
+    <br /><br />
+
+    <button id="hiddenTable">Скрыть таблицу</button>
+    <table id="build"></table>
+  </body>
+</html>

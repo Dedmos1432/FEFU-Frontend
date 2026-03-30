@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://d3js.org/d3.v7.min.js"></script>
     <script src="JavaScript/data.js" defer></script>
     <script src="JavaScript/main.js" defer></script>
     <script src="JavaScript/table.js" defer></script>
     <script src="JavaScript/filter.js" defer></script>
     <script src="JavaScript/sort.js" defer></script>
+    <script src="JavaScript/chart.js" defer></script>
 
     <title>Document</title>
   </head>
@@ -25,18 +27,38 @@
       <div>
         <details>
           <summary>График</summary>
-          <form>
+          <form id="graph_settings">
             <b>Значение по оси OX</b><br />
-            <input type="radio" id="i1" name="ox" /> Энергопотребление<br />
-            <input type="radio" id="i2" name="ox" /> Видеопамять<br />
+            <input
+              type="radio"
+              id="i1"
+              name="ox"
+              value="Энергопотребление (Вт)"
+              checked
+            />
+            Энергопотребление <br />
+            <input type="radio" id="i2" name="ox" value="Видеопамять (ГБ)" />
+            Видеопамять <br />
+            <p>
+              <select id="type">
+                <option value="dots">Точечная диаграмма</option>
+                <option value="graph">График</option>
+                <option value="column">Гистограмма</option>
+              </select>
+            </p>
 
             <b>Результат</b><br />
-            <input type="checkbox" id="i3" name="max" /> Максимальная мощность
-            <br />
-            <input type="checkbox" id="i4" name="min" /> Минимальное мощность<br />
-            <button type="submit">Построить</button>
+            <div class="checkbox-group">
+              <input type="checkbox" id="i3" value="max" checked /> Максимальное
+              значение <br />
+              <input type="checkbox" id="i4" value="min" /> Минимальное значение
+              <br />
+            </div>
+
+            <div id="error-message"></div>
+            <button id="buildGraphBtn">Построить</button>
           </form>
-          Здесь будет график
+          <svg width="800" height="500"></svg>
         </details>
 
         <!-- <details>
