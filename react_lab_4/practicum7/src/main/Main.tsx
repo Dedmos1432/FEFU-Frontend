@@ -1,0 +1,12 @@
+import Navbar from "../components/Navbar";
+import Gallery from "./components/Gallery";
+import Content from "./components/Content";
+export default function Main() {
+  return (
+    <div>
+      <Navbar active="1" />
+      <Gallery />
+      <Content />
+    </div>
+  );
+}

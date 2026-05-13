@@ -3,6 +3,7 @@ import TableBody from "./TableBody";
 import Filter from "./Filter";
 import { useState } from "react";
 import Sort from "./Sort";
+import Chart from "./Chart";
 
 export default function Table({ data, amountRows, isVisiablePagin }) {
   const [dataTable, setDataTable] = useState(data);
@@ -16,6 +17,7 @@ export default function Table({ data, amountRows, isVisiablePagin }) {
 
   return VisiablePagin ? (
     <>
+      <Chart data={dataTable} />
       <h4>Фильтры</h4>
       <Filter
         filtering={updateDataTable}

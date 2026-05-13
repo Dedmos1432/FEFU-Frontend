@@ -24,3 +24,27 @@ td {
   flex-direction: row;
   gap: 10px;
 }
+svg {
+  width: 800px;
+  height: 400px;
+}
+
+svg path,
+line {
+  fill: none;
+  stroke: black;
+  width: 1px;
+}
+
+svg text {
+  font: 8px Verdana;
+}
+
+.error {
+  width: 500px;
+}
+
+.erro-text {
+  color: red;
+  display: none;
+}

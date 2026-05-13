@@ -1,4 +1,4 @@
-export default function Filter({ filtering, data, fullData, selectLastPage }) {
+export default function Filter({ filtering, data, fullData }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
@@ -38,7 +38,6 @@ export default function Filter({ filtering, data, fullData, selectLastPage }) {
         });
       }
       filtering(arr);
-      selectLastPage(Math.ceil(arr.length / 15));
     }
   };
 
