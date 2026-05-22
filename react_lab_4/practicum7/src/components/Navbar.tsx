@@ -79,6 +79,16 @@ export default function Navbar({ active }: ComponentProps) {
                 Диаграмма
               </Button>
             </Link>
+
+            <Link to="/test">
+              <Button
+                variant={active === "4" ? "contained" : "text"}
+                color="info"
+                size="medium"
+              >
+                Тестирование
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -172,6 +182,31 @@ export default function Navbar({ active }: ComponentProps) {
                   >
                     Контакты
                   </MenuItem>
+
+                  <Link to="/test">
+                    <MenuItem
+                      selected={active === "4"}
+                      sx={{
+                        bgcolor: active === "2" ? "info.main" : "transparent",
+                        color: active === "2" ? "white" : "inherit",
+
+                        "&:hover": {
+                          bgcolor: active === "2" ? "info.main" : "info.light",
+                        },
+
+                        "&.Mui-selected": {
+                          bgcolor: "info.main",
+                          color: "white",
+                        },
+
+                        "&.Mui-selected:hover": {
+                          bgcolor: "info.main",
+                        },
+                      }}
+                    >
+                      Тестирование
+                    </MenuItem>
+                  </Link>
                 </MenuList>
               </Box>
             </Drawer>

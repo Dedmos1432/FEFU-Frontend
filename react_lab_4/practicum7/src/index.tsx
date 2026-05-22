@@ -10,6 +10,9 @@ import Building from "./building/Building";
 import GroupGrid from "./chart/components/GroupGrid";
 import { countries } from "./chart/groupdata";
 import Chart from "./chart/Chart";
+import Testing from "./testing/Testing";
+import { Provider } from "react-redux";
+import store from "./store";
 const router = createBrowserRouter([
   {
     index: true,
@@ -27,13 +30,19 @@ const router = createBrowserRouter([
     path: "/diagramm",
     element: <Chart />,
   },
+  {
+    path: "/test",
+    element: <Testing />,
+  },
 ]);
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 );
 
